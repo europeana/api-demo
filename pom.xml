@@ -19,10 +19,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>api2-demo</artifactId>
+    <artifactId>api-demo</artifactId>
     <groupId>eu.europeana.api2</groupId>
     <packaging>war</packaging>
-    <name>Europeana API2 Demo Web Application</name>
+    <name>Europeana API Demo Web Application</name>
     <url>api.europeana.eu/demo</url>
 
     <parent>
