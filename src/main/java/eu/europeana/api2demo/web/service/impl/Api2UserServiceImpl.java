@@ -1,7 +1,6 @@
 package eu.europeana.api2demo.web.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import eu.europeana.api2.v2.model.json.ModificationConfirmation;
 import eu.europeana.api2demo.Config;
 import eu.europeana.api2demo.web.model.*;
 import eu.europeana.api2demo.web.service.Api2UserService;
@@ -67,12 +66,6 @@ public class Api2UserServiceImpl implements Api2UserService {
     }
 
     @Override
-    public boolean createSavedItem(String id) {
-        ModificationConfirmation result = postJson(config.getUriSavedItemCreate() + id, ModificationConfirmation.class);
-        return result != null && result.success;
-    }
-
-    @Override
     public void deleteSavedItem(Long id) {
         deleteJson(config.getUriSavedItemDelete() + id.toString());
     }
@@ -89,12 +82,6 @@ public class Api2UserServiceImpl implements Api2UserService {
     @Override
     public TagCloud createTagCloud() {
         return postJson(config.getUriTagsTagcloud(), TagCloud.class);
-    }
-
-    @Override
-    public boolean createTag(String id, String tag) {
-        // TODO Auto-generated method stub
-        return false;
     }
 
     @Override

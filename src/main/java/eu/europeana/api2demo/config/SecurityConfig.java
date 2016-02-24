@@ -37,8 +37,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
             .httpBasic()
                 .realmName("Api2 DEMO application");
-//                .and()
-//            .anonymous();
         // @formatter:on
 
     }

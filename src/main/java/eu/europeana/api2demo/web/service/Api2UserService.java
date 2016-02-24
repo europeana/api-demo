@@ -27,16 +27,12 @@ public interface Api2UserService {
     // SAVED ITEMS
     UserSavedItems getSavedItems();
 
-    boolean createSavedItem(String id);
-
     void deleteSavedItem(Long id);
 
     // TAGS
     UserTags getTags(String tag);
 
     TagCloud createTagCloud();
-
-    boolean createTag(String id, String tag);
 
     void deleteTag(Long id);
 
