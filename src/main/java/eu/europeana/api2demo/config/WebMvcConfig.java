@@ -39,13 +39,4 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         contentViewResolver.setDefaultViews(Collections.<View>singletonList(new MappingJackson2JsonView()));
         return contentViewResolver;
     }
-
-    @Bean
-    public ViewResolver viewResolver() {
-        InternalResourceViewResolver bean = new InternalResourceViewResolver();
-        bean.setViewClass(JstlView.class);
-        bean.setPrefix("/WEB-INF/views/");
-        bean.setSuffix(".jsp");
-        return bean;
-    }
 }

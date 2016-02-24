@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,8 +40,7 @@ public class UserController {
     @RequestMapping("/")
     public ModelAndView profile() {
         UserProfile profile = api2UserService.getProfile();
-        Map<String, Object> model = new HashMap<>();
-        model.put("profile", profile);
+        Map<String, Object> model = Collections.singletonMap("profile", (Object)profile);
         return new ModelAndView("user/profile", model);
     }
 

@@ -25,7 +25,7 @@ public class UserProfile extends Profile {
         super();
     }
 
-    public UserProfile(String apikey, String action) {
+    public UserProfile(String apikey) {
         super(apikey);
     }
 
