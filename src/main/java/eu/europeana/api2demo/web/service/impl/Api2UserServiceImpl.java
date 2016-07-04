@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import eu.europeana.api2demo.Config;
 import eu.europeana.api2demo.web.model.*;
 import eu.europeana.api2demo.web.service.Api2UserService;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestOperations;
@@ -25,12 +26,22 @@ public class Api2UserServiceImpl implements Api2UserService {
 
     private <T> T getJson(String uri, Class<T> clazz) {
 
+        if (!uri.contains("api")) {
+            uri = org.apache.commons.lang.StringUtils.replace(uri, "http://localhost:8080/", "http://localhost:8080/api/");
+        }
+
         try (
+
+
                 InputStream is = new ByteArrayInputStream(
                         restTemplate.getForObject(URI.create(uri), byte[].class)
                 )
         ) {
-            return new ObjectMapper().readValue(is, clazz);
+          String s = IOUtils.toString(is);
+            System.out.println(s);
+            System.out.println(uri);
+
+            return new ObjectMapper().readValue(s, clazz);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -38,12 +49,16 @@ public class Api2UserServiceImpl implements Api2UserService {
     }
 
     private <T> T postJson(String uri, Class<T> clazz) {
-
+        if (!uri.contains("api")) {
+            uri = org.apache.commons.lang.StringUtils.replace(uri, "http://localhost:8080/", "http://localhost:8080/api/");
+        }
         try (
                 InputStream is = new ByteArrayInputStream(
                         restTemplate.postForObject(URI.create(uri), null, byte[].class)
                 )
         ) {
+            //System.out.println(IOUtils.toString(is));
+            System.out.println(uri);
             return new ObjectMapper().readValue(is, clazz);
         } catch (IOException e) {
             e.printStackTrace();

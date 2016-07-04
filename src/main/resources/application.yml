@@ -8,7 +8,7 @@ api2:
   key: api2demo
   secret: verysecret
   url:
-    host: http://localhost:8080
+    host: http://localhost:8080/api
     oauth:
       token: ${api2.url.host}/oauth/token
       authorize: ${api2.url.host}/oauth/authorize

@@ -40,6 +40,7 @@ public class OAuth2Config {
         bean.setAccessTokenUri(accessTokenUri);
         bean.setUserAuthorizationUri(userAuthorizationUri);
         bean.setScope(Arrays.asList("read", "write"));
+
         return bean;
     }
 

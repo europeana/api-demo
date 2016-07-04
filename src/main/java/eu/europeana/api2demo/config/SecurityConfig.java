@@ -30,6 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user/**").hasRole(ROLE_USER)
                 .anyRequest().permitAll()
                 .and()
+                .csrf().disable()
             .logout()
                 .logoutSuccessUrl("/")
                 .logoutUrl("/logout.do")
