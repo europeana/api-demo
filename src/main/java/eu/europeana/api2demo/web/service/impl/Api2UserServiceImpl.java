@@ -26,9 +26,9 @@ public class Api2UserServiceImpl implements Api2UserService {
 
     private <T> T getJson(String uri, Class<T> clazz) {
 
-        if (!uri.contains("api")) {
-            uri = org.apache.commons.lang.StringUtils.replace(uri, "http://localhost:8080/", "http://localhost:8080/api/");
-        }
+        //if (!uri.contains("api")) {
+        //    uri = org.apache.commons.lang.StringUtils.replace(uri, "http://localhost:8080/", "http://localhost:8080/api/");
+        //}
 
         try (
 
@@ -49,9 +49,9 @@ public class Api2UserServiceImpl implements Api2UserService {
     }
 
     private <T> T postJson(String uri, Class<T> clazz) {
-        if (!uri.contains("api")) {
-            uri = org.apache.commons.lang.StringUtils.replace(uri, "http://localhost:8080/", "http://localhost:8080/api/");
-        }
+        //if (!uri.contains("api")) {
+        //    uri = org.apache.commons.lang.StringUtils.replace(uri, "http://localhost:8080/", "http://localhost:8080/api/");
+        //}
         try (
                 InputStream is = new ByteArrayInputStream(
                         restTemplate.postForObject(URI.create(uri), null, byte[].class)
