@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>API2 DEMO - User Favorties</title>
+    <title th:text="|API2 Social Tags for ${username}|">API2 DEMO - User Favorites</title>
 </head>
 
 <body>
 <div th:include="links :: links"/>
-<h1>Social Tags for: ${username}</h1>
+<h1>Social Tags for: <span th:text="|${username} |">userName</span></h1>
 <table border="1">
     <thead>
     <tr>
@@ -18,17 +18,18 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="tag" items="${items}">
+    <th:each var="tag" items="${items}">
+        <!--<c:forEach var="tag" items="${items}">-->
         <tr>
             <td>${tag.title}</td>
             <td>${tag.tag}</td>
             <td><fmt:formatDate value="${tag.dateSaved}"/></td>
             <td>
                 <a href="${tag.guid}" target="_blank">view</a>
-                <a href="tags?action=DELETE&id=${tag.id}">delete</a>
+                <a href="tags?action=DELETE&amp;id=${tag.id}">delete</a>
             </td>
         </tr>
-    </c:forEach>
+    </th:each>
     </tbody>
 </table>
 

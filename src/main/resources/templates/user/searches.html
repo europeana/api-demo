@@ -1,5 +1,9 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:c="http://www.thymeleaf.org"
+      xmlns:fmt="http://www.thymeleaf.org"
+>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>API2 DEMO - User Saved Searches</title>
@@ -22,9 +26,9 @@
                 <fmt:formatDate value="${search.dateSaved}"/>
             </td>
             <td>
-                <a href="http://www.europeana.eu/portal/search.html?rows=24&${search.queryString}"
+                <a href="http://www.europeana.eu/portal/search.html?rows=24&amp;${search.queryString}"
                    target="_blank">view</a>
-                <a href="searches?action=DELETE&id=${search.id}">delete</a>
+                <a href="searches?action=DELETE&amp;id=${search.id}">delete</a>
             </td>
         </tr>
     </c:forEach>

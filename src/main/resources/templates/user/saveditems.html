@@ -1,5 +1,9 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:c="http://java.sun.com/JSP/Page"
+      xmlns:fmt="http://www.thymeleaf.org"
+>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>API2 DEMO - User Saved Items</title>
@@ -25,7 +29,7 @@
             </td>
             <td>
                 <a href="${item.guid}" target="_blank">view</a>
-                <a href="saveditems?action=DELETE&id=${item.id}">delete</a>
+                <a href="saveditems?action=DELETE&amp;id=${item.id}">delete</a>
             </td>
         </tr>
     </c:forEach>
