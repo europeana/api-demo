@@ -1,3 +1,7 @@
+**This project is no longer maintained.**
+
+---
+
 # HOW TO CONFIGURE
 
 change the properties in *src/main/resources/application.yml*
